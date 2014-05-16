@@ -1,6 +1,9 @@
 package simwir.matcraft;
 
+import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
+import simwir.matcraft.items.ItemTable;
+import simwir.matcraft.lib.ItemReferrences;
 import simwir.matcraft.lib.References;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -8,6 +11,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = References.MOD_ID, name = References.MOD_NAME, version = References.MOD_VERSION)
 public class MatterCraft {
@@ -16,7 +20,7 @@ public class MatterCraft {
 	// Defining blocks
 	//\public static Block waterSource;
 	// Defining Items
-	//\public static Item meter;
+	public static Item table;
 	// Defining other
 	public static boolean debug;
 	
@@ -32,6 +36,7 @@ public class MatterCraft {
 		//\waterSource = new BlockWaterSource();
 		// Items
 		//\meter = new ItemMeter();
+		table = new ItemTable();
 		gameRegisters();
 	}
 	@EventHandler
@@ -45,7 +50,7 @@ public class MatterCraft {
 		// Registers blocks to the game.
 		//\GameRegistry.registerBlock(waterSource, BlockReferences.WATER_SOURCE_UNC_NAME);
 		//Registeres items to the game
-		//\GameRegistry.registerItem(meter, ItemReferences.ITEM_METER_UNC_NAME);
+		GameRegistry.registerItem(table, ItemReferrences.ITEM_TABLE_UNC_NAME);
 	}
 	private void registerTileEntities() {
 
